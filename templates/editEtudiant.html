@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Edit Etudiant</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-success">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <p class="navbar-brand" href="#"> <H2>ECOLE SUPERIEUR POLYTECHNIQUE    </H2></p>
+        </div>
+        <div class="col-lg-6 text-right">
+          <img src="{% static 'images/logo_0.jpg' %}" alt="image" class="img-fluid w-100">
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <h1 class="my-4">Edit Etudiant</h1>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="nom" name="nom" value="{{ etudiant.nom }}" required>
+      </div>
+      <div class="mb-3">
+        <label for="prenom" class="form-label">Prénom</label>
+        <input type="text" class="form-control" id="prenom" name="prenom" value="{{ etudiant.prenom }}" required>
+      </div>
+      <div class="mb-3">
+        <label for="date_naissance" class="form-label">Date de naissance</label>
+        <input type="date" class="form-control" id="date_naissance" name="date_naissance" value="{{ etudiant.date_naissance }}" required>
+      </div>
+      <div class="mb-3">
+        <label for="lieu_naissance" class="form-label">Lieu de naissance</label>
+        <input type="text" class="form-control" id="lieu_naissance" name="lieu_naissance" value="{{ etudiant.lieu_naissance }}" required>
+      </div>
+      <div class="mb-3">
+        <label for="pays_naissance" class="form-label">Pays de naissance</label>
+        <input type="text" class="form-control" id="pays_naissance" name="pays_naissance" value="{{ etudiant.pays_naissance }}" required>
+      </div>
+      <div class="mb-3">
+        <label for="departement" class="form-label">Département</label>
+        <select class="form-control" id="departement" name="departement" required>
+          <option value="">Choisir un département</option>
+          <option value="IRT" {% if etudiant.departement == "IRT" %} selected {% endif %}>IRT</option>
+          <option value="MPG" {% if etudiant.departement == "MPG" %} selected {% endif %}>MPG</option>
+          <option value="GC" {% if etudiant.departement == "GC" %} selected {% endif %}>GC</option>
+          <option value="GE" {% if etudiant.departement == "GE" %} selected {% endif %}>GE</option>
+          <option value="GM" {% if etudiant.departement == "GM" %} selected {% endif %}>GM</option>
+          <option value="SID" {% if etudiant.departement == "SID" %} selected {% endif %}>SID</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="voie_acces" class="form-label">Voie d'accès</label>
+        <select class="form-control" id="voie_acces" name="voie_acces" required>
+          <option value="">Choisir une voie d'accès</option>
+          <option value="voie1" {% if etudiant.voie_acces == "voie1" %} selected {% endif %}>Voie 1</option>
+          <option value="voie2" {% if etudiant.voie_acces == "voie2" %} selected {% endif %}>Voie 2</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="matricule" class="form-label">Matricule</label>
+        <input type="text" class="form-control" id="matricule" name="matricule" value="{{ etudiant.matricule }}" required>
+      </div>
+      <div class="mb-3">
+        <label for="nationalite" class="form-label">Nationalité</label>
+        <input type="text" class="form-control" id="nationalite" name="nationalite" value="{{ etudiant.nationalite }}" required>
+      </div>
+      <div class="mb-3">
+        <label for="nni" class="form-label">NNI</label>
+        <input type="text" class="form-control" id="nni" name="nni" value="{{ etudiant.nni }}" required>
+      </div>
+      <div class="mb-3">
+        <label for="statut" class="form-label">Statut</label>
+        <select class="form-control" id="statut" name="statut" required>
+          <option value="">Choisir un statut</option>
+          <option value="Normale" {% if etudiant.statut == "Normale" %} selected {% endif %}>Normale</option>
+          <option value="diplomé" {% if etudiant.statut == "diplomé" %} selected {% endif %}>Diplômé</option>
+          <option value="Renvoyé" {% if etudiant.statut == "Renvoyé" %} selected {% endif %}>Renvoyé</option>
+          <option value="Double diplôme" {% if etudiant.statut == "Double diplôme" %} selected {% endif %}>Double diplôme</option>
+          <option value="Echange" {% if etudiant.statut == "Echange" %} selected {% endif %}>Échange</option>
+          <option value="Césure" {% if etudiant.statut == "Césure" %} selected {% endif %}>Césure</option>
+          <option value="Abandonné" {% if etudiant.statut == "Abandonné" %} selected {% endif %}>Abandonné</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="annee_inscription" class="form-label">Année d'inscription</label>
+        <input type="number" class="form-control" id="annee_inscription" name="annee_inscription" value="{{ etudiant.annee_inscription }}" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Add Enseignant</title>
+</head>
+
+<body>
+  <!---debut de navvvv-->
+  <nav class="navbar navbar-expand-lg bg-success">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <p class="navbar-brand" href="#"> <H2>ECOLE SUPERIEUR POLYTECHNIQUE    </H2></p>
+        </div>
+        <div class="col-lg-6 text-right">
+          <img src="{% static 'images/logo_0.jpg' %}" alt="image" class="img-fluid w-100">
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!---fin de navvvv--->
+  <div class="container">
+    <h1 class="my-4">Add New Notes</h1>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="Matricule" class="form-label">Matricule</label>
+        <input type="text" class="form-control" id="Matricule" name="Matricule" required>
+      </div>
+      <div class="mb-3">
+        <label for="Nom" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="Nom" name="Nom" required>
+      </div>
+      <div class="mb-3">
+        <label for="moyenne_S1" class="form-label">moyenne_S1</label>
+        <input type="number" step="0.01" class="form-control" id="moyenne_S1" name="moyenne_S1"  required>
+      </div>
+      <div class="mb-3">
+        <label for="moyenne_S2" class="form-label">moyenne_S2</label>
+        <input type="number" step="0.01" class="form-control" id="moyenne_S2" name="moyenne_S2"  required>
+      </div>
+      <div class="mb-3">
+        <label for="moyenne_generale" class="form-label">moyenne_generale </label>
+        <input type="number" step="0.01" class="form-control" id="moyenne_generale" name="moyenne_generale" required>
+      </div>
+      <div class="mb-3">
+        <label for="Decision" class="form-label">Decision</label>
+        <select class="form-control" id="Decision" name="Decision" required>
+          <option value=""> choisir une option</option>
+          <option value="Admis">Admis</option>
+          <option value="Redoublant">Redoublant</option>
+          <option value="Renvoyé">Renvoyé</option>
+        </select>
+      </div>
+      <button  type="submit" class="btn btn-primary">Submit</button>
+      
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

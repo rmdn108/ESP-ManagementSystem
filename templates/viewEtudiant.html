@@ -1,0 +1,172 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+   <!--====== Favicon Icon ======-->
+    <!--link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/png"-->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico'%}">
+    
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+
+    <!--====== Animate css ======-->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <!--====== Nice Select css ======-->
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+
+    <!--====== Nice Number css ======-->
+    <link rel="stylesheet" href="{% static 'css/jquery.nice-number.min.css' %}">
+
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!--====== Fontawesome css ======-->
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
+
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!--====== Responsive css ======-->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    
+  <title>View Etudiants</title>
+</head>
+
+<body>
+
+  <header id="header-part">
+
+    <!---debut de navvvv-->
+    <nav class="navbar navbar-expand-lg bg-success">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6">
+              <a class="navbar-brand" href="#"> <H2>ECOLE SUPERIEUR POLYTECHNIQUE</H2></a>
+            </div>
+            <div class="col-lg-6 text-right">
+              <img src="{% static 'images/logo_0.jpg' %}" alt="image" class="img-fluid w-100">
+            </div>
+          </div>
+        </div>
+      </nav>
+  <!---fin de navvvv--->
+
+
+
+    <div class="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 col-sm-9 col-8">
+                    <nav class="navbar navbar-expand-lg">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                
+                                <li class="nav-item">
+                                    <a href="{% url 'enseignants' %}">enseignant</a>
+                                   
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'viewEtudiant' %}">etudiant</a>
+                                </li>
+                                
+
+                                <li class="nav-item">
+                                    <a href="{% url 'viewNote' %}">notes</a>
+                                    
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'module_list' %}">element de module</a>
+                                    
+                                </li>
+                               
+                            </ul>
+                        </div>
+                    </nav> <!-- nav -->
+                </div>
+               
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div>
+   
+
+</header>
+  
+
+
+  <div class="container">
+    <h1 class="my-4">Etudiants</h1>
+    <form method="GET" action="" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="search" placeholder="Rechercher un étudiant " class="form-control">
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </div>
+    </form>
+    <a href="{% url 'insertEtudiant' %}" class="btn btn-primary mb-3">Add New Etudiants</a>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Matricule</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prénom</th>
+          <th scope="col">Date de naissance</th>
+          <th scope="col">Lieu de naissance</th>
+          <th scope="col">Pays de naissance</th>
+          <th scope="col">Département</th>
+          <th scope="col">Voie d'accès</th>
+          <th scope="col">Nationalité</th>
+          <th scope="col">NNI</th>
+          <th scope="col">Statut</th>
+          <th scope="col">Année d'inscription</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for enseignant in etudiants  %}
+        <tr>
+          <td>{{ enseignant.matricule }}</td>
+          <td>{{ enseignant.nom }}</td>
+          <td>{{ enseignant.prenom }}</td>
+          <td>{{ enseignant.date_naissance }}</td>
+          <td>{{ enseignant.lieu_naissance }}</td>
+          <td>{{ enseignant.pays_naissance }}</td>
+          <td>{{ enseignant.departement }}</td>
+          <td>{{ enseignant.voie_acces }}</td>
+          <td>{{ enseignant.nationalite }}</td>
+          <td>{{ enseignant.nni }}</td>
+          <td>{{ enseignant.statut }}</td>
+          <td>{{ enseignant.annee_inscription }}</td>
+          <td style="display: flex;">
+            <a href="/editEtudiant/{{ enseignant.id }}" class="btn btn-warning">Edit</a>&nbsp;
+            <a href="/deleteEtudiant/{{ enseignant.id }}"
+              onclick="return confirm('Are you sure you want to delete this etudiants?')" class="btn btn-danger">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+

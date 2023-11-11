@@ -1,0 +1,149 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--====== Title ======-->
+    <title>MENU</title>
+
+    <!--====== Favicon Icon ======-->
+    <!--link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/png"-->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico'%}">
+    
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+
+    <!--====== Animate css ======-->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <!--====== Nice Select css ======-->
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+
+    <!--====== Nice Number css ======-->
+    <link rel="stylesheet" href="{% static 'css/jquery.nice-number.min.css' %}">
+
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!--====== Fontawesome css ======-->
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
+
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!--====== Responsive css ======-->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+
+</head>
+
+<body>
+    
+
+    <header id="header-part">
+
+        <!---debut de navvvv-->
+        <nav class="navbar navbar-expand-lg bg-success">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-6">
+                  <a class="navbar-brand" href="#"> <H2>ECOLE SUPERIEUR POLYTECHNIQUE</H2></a>
+                </div>
+                <div class="col-lg-6 text-right">
+                  <img src="{% static 'images/logo_0.jpg' %}" alt="image" class="img-fluid w-100">
+                </div>
+              </div>
+            </div>
+          </nav>
+      <!---fin de navvvv--->
+
+
+
+        <div class="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 col-sm-9 col-8">
+                        <nav class="navbar navbar-expand-lg">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    
+                                    <li class="nav-item">
+                                        <a href="{% url 'enseignants' %}">enseignant</a>
+                                       
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'viewEtudiant' %}">etudiant</a>
+                                    </li>
+                                    
+
+                                    <li class="nav-item">
+                                        <a href="{% url 'viewNote' %}">notes</a>
+                                        
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'module_list' %}">element de module</a>
+                                        
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                        </nav> <!-- nav -->
+                    </div>
+                   
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div>
+       
+
+    </header>
+
+    <!--====== HEADER PART ENDS ======-->
+
+ 
+    <!--====== SLIDER PART START ======-->
+
+   
+
+    <!--====== SLIDER PART ENDS ======-->
+
+
+
+    
+    
+ 
+
+
+
+ 
+
+
+
+
+
+<br>
+<br><br>
+<br>
+<br>
+<br>
+
+
+</body>
+</html>

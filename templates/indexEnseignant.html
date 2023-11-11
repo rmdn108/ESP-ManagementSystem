@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Add Enseignant</title>
+</head>
+
+<body>
+   <!---debut de navvvv-->
+   <nav class="navbar navbar-expand-lg bg-success">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <p class="navbar-brand" href="#"> <H2>ECOLE SUPERIEUR POLYTECHNIQUE    </H2></p>
+        </div>
+        <div class="col-lg-6 text-right">
+          <img src="{% static 'images/logo_0.jpg' %}" alt="image" class="img-fluid w-100">
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!---fin de navvvv--->
+
+  
+  <div class="container">
+    <h1 class="my-4">Add New Enseignant</h1>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="nom" name="nom" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="telph" class="form-label">
+          Telephone</label>
+        <input type="text" class="form-control" id="telph" name="telph" required>
+      </div>
+      <div class="mb-3">
+        <label for="Diplome" class="form-label">Diplome</label>
+        <select class="form-control" id="Diplome" name="Diplome" required>
+          <option value=""> choisir une option</option>
+          <option value="Dr">Dr</option>
+          <option value="Ingenier">Ingenier</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="Statut" class="form-label">Statut</label>
+        <select class="form-control" id="Statut" name="Statut" required>
+          <option value=""> choisir une option</option>
+          <option value="Permenant">Permenant</option>
+          <option value="Vacataire">Vacataire</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input type="file" class="form-control" id="image" name="image" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
